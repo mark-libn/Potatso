@@ -78,10 +78,10 @@ open class Proxy: BaseModel {
     @objc open dynamic var ssrObfs: String?
     @objc open dynamic var ssrObfsParam: String?
 
-    open static let ssUriPrefix = "ss://"
-    open static let ssrUriPrefix = "ssr://"
+    public static let ssUriPrefix = "ss://"
+    public static let ssrUriPrefix = "ssr://"
 
-    open static let ssrSupportedProtocol = [
+    public static let ssrSupportedProtocol = [
         "origin",
         "verify_simple",
         "auth_simple",
@@ -89,14 +89,14 @@ open class Proxy: BaseModel {
         "auth_sha1_v2"
     ]
 
-    open static let ssrSupportedObfs = [
+    public static let ssrSupportedObfs = [
         "plain",
         "http_simple",
         "tls1.0_session_auth",
         "tls1.2_ticket_auth"
     ]
 
-    open static let ssSupportedEncryption = [
+    public static let ssSupportedEncryption = [
         "table",
         "rc4",
         "rc4-md5",
@@ -117,7 +117,7 @@ open class Proxy: BaseModel {
         "chacha20-ietf"
     ]
 
-    open override static func indexedProperties() -> [String] {
+    public override static func indexedProperties() -> [String] {
         return ["name"]
     }
 
@@ -219,7 +219,7 @@ extension Proxy {
                 self.port = p
                 self.type = .Shadowsocks
             }else if uriString.lowercased().hasPrefix(Proxy.ssrUriPrefix) {
-                let undecodedString = uriString.substring(from: uriString.characters.index(uriString.startIndex, offsetBy: Proxy.ssrUriPrefix.characters.count))
+                let undecodedString = uriString.substring(from: uriString.index(uriString.startIndex, offsetBy: Proxy.ssrUriPrefix.count))
                 guard let proxyString = base64DecodeIfNeeded(undecodedString), let _ = proxyString.range(of: ":")?.lowerBound else {
                     throw ProxyError.invalidUri
                 }

@@ -61,9 +61,11 @@ enum {
 #undef regex_t
 
 typedef struct {
-  void *re_pcre;
+//  void *re_pcre;
+  void *re_g;
+    
   size_t re_nsub;
-  size_t re_erroffset;
+//  size_t re_erroffset;;
 } regex_t;
 
 /* The structure in which a captured offset is returned. */

@@ -30,15 +30,16 @@ target "Potatso" do
     pod 'Appirater'
     pod 'Eureka'
     pod 'MBProgressHUD'
-    pod 'CallbackURLKit', :path => "./Library/CallbackURLKit"
+    pod 'CallbackURLKit'
     pod 'ICDMaterialActivityIndicatorView', '~> 0.1.0'
     pod 'Reveal-iOS-SDK', '~> 1.6.2', :configurations => ['Debug']
-    pod 'ICSPullToRefresh', '~> 0.6'
+    pod 'ICSPullToRefresh'
     pod 'ISO8601DateFormatter', '~> 0.8'
     pod 'Alamofire'
-    pod 'ObjectMapper'
-    pod 'CocoaLumberjack/Swift', '~> 3.0.0'
-    pod 'PSOperations'
+    pod 'AlamofireObjectMapper', :git => 'https://github.com/RomanPodymov/AlamofireObjectMapper.git', :branch => 'xcode-10-2-fix'
+    pod 'CocoaLumberjack/Swift', '~> 3.7.4'
+    pod 'PSOperations', '~> 5.0'
+    pod 'Crashlytics', '~> 3.10.7'
     tunnel
     library
     socket
